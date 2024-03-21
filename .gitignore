@@ -1,0 +1,4 @@
+node_modules
+example/*.json
+example/*.hpp
+example/*.cpp

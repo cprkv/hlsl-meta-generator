@@ -1,0 +1,22 @@
+{
+  "name": "deps-spirv-generate-src",
+  "version": "1.0.0",
+  "description": "CMake stuff to generate spirv for shaders into shaders.cpp/hpp files.",
+  "main": "gen-spirv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cprkv/spirv-generate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cprkv/spirv-generate/issues"
+  },
+  "homepage": "https://github.com/cprkv/spirv-generate#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.6"
+  }
+}
