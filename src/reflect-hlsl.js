@@ -37,7 +37,8 @@ async function reflectHLSLShaders(files, version, namespace) {
 
 namespace ${namespace} {
 ${types}
-}`;
+}
+`;
 
   if (shaderInfos.some((x) => !x)) {
     throw new Error("some of shader infos is null");
