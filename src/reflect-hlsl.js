@@ -201,9 +201,18 @@ class PlainStruct {
     //   sizeComment = ` // ${this.size} bytes`;
     // }
 
-    return [`struct ${this.name} {${sizeComment}`, ...memberStrings, "};"].join(
-      "\n"
-    );
+    // TODO: common VS and PS can share same constant buffer name, so it should be resolved by reflector...
+    const guardName = `GUARD_${this.name}`;
+    const guardBegin = `#ifndef ${guardName}\n#define ${guardName}`;
+    const guardEnd = `#endif`;
+
+    return [
+      guardBegin,
+      `struct ${this.name} {${sizeComment}`,
+      ...memberStrings,
+      "};",
+      guardEnd,
+    ].join("\n");
   }
 
   dumpChecks() {
@@ -235,6 +244,7 @@ class TypeContainer {
     if (type.name.includes("::<unnamed>")) {
       throw new Error("unnamed types is not yet supported");
     }
+    console.log(`add type ${type.name} with depth ${depth}`);
     this.#types.set(type.name, { type, depth });
   }
 
